@@ -24,7 +24,7 @@ async function main() {
     const voteTxSignature = await getLedgerSignature(arkTransport, voteTx.serialized);
     const signedVoteTx = addDoubleVoteSignature(voteTx, voteTxSignature);
 
-    // await sendTransactionADN(signedVoteTx);
+    await sendTransactionADN(signedVoteTx);
 }
 
 main();
