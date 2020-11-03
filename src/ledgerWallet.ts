@@ -27,7 +27,7 @@ export async function getLedgerWalletNextNonce(ledgerAddress: string): Promise<B
 
 export async function getLedgerWalletCurrentVote(ledgerAddress: string): Promise<string> | undefined {
     const senderWallet = await getConnectionADN()
-        .then(async (client: any) => await client.api("wallets").get("ledgerAddress"));
+        .then(async (client: any) => await client.api("wallets").get(ledgerAddress));
     const currentVote: string | undefined = senderWallet.body.data.attributes.vote;
     console.log('\nLedger Current Vote: ', currentVote, '\n');
     return currentVote;
